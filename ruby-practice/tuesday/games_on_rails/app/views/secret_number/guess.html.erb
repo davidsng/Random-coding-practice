@@ -1,0 +1,13 @@
+<h1>My guess is: </h1>
+
+<% 11.times do |i| %>
+  <%= link_to "Guess #{i}", secret_number_results_path(guess: i), method: :post %>
+<% end %>
+
+<!-- The path helper (i.e., adding _path after the secret_number_results)
+and the 'post' option changes the url hash to
+http://localhost:3000/secret_number_results/4  when clicked.
+Because the post method was invoked, Rails will then look at routes.rb,
+and see "  post 'secret_number_results/:guess' => 'secret_number#result', :as => 'secret_number_results'"
+This in turn makes Rails look into the secret_number controlled and execute the function called 'result'.
+ -->
